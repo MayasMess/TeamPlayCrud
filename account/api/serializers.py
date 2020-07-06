@@ -1,3 +1,5 @@
+from abc import ABC
+
 from rest_framework import serializers
 from account.models import Account
 
@@ -8,7 +10,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Account
-        fields = ['email', 'username', 'password', 'password2']
+        fields = ['email', 'password', 'password2']
         extra_kwargs = {
             'password': {'write_only': True}
         }
@@ -16,7 +18,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
     def save(self):
         account = Account(
             email=self.validated_data['email'],
-            username=self.validated_data['username']
         )
         password = self.validated_data['password']
         password2 = self.validated_data['password2']
