@@ -1,12 +1,8 @@
-from rest_framework import parsers, renderers, status
+from rest_framework import status
 from rest_framework.authtoken.models import Token
-from rest_framework.authtoken.serializers import AuthTokenSerializer
+from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework.compat import coreapi, coreschema
-from rest_framework.schemas import ManualSchema
-from rest_framework.views import APIView
-
 from account.api.serializers import RegistrationSerializer
 
 
@@ -24,4 +20,12 @@ def registration_view(request):
             return Response(data)
         data = serializer.errors
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+def logout_view(request, token):
+    if request.method == 'DELETE':
+        queryset = Token.objects.get(key=token)
+        queryset.delete()
+        return Response({'response': 'successfully deleted'})
 
