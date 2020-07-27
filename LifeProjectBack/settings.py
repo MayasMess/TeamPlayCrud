@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'account',
+    'teams',
+    'players',
     'corsheaders',
     'rest_framework.authtoken'
 ]
