@@ -23,3 +23,12 @@ class PlayerListByTeam(generics.ListAPIView):
     def get_queryset(self):
         team = self.kwargs['team_id']
         return Player.objects.filter(team=team)
+
+
+class PlayerListByOwner(generics.ListAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = PlayerAllSerializer
+
+    def get_queryset(self):
+        owner = self.kwargs['owner_id']
+        return Player.objects.filter(owner=owner)
