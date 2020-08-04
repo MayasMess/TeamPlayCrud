@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'account',
     'teams',
     'players',
+    'tabletoken',
     'corsheaders',
     'rest_framework.authtoken'
 ]

@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.api.urls')),
     path('teams/', include('teams.api.urls')),
-    path('players/', include('players.api.urls'))
+    path('players/', include('players.api.urls')),
+    path('tabletoken/', include('tabletoken.api.urls'))
 ]
