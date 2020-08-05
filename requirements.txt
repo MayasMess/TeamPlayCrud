@@ -1,0 +1,9 @@
+Django==3.0.8
+coreschema==0.0.4
+django-cors-headers==3.4.0
+djangorestframework==3.11.0
+pip==19.0.3
+pytz==2020.1
+setuptools==40.8.0
+sqlparse==0.3.1
+psycopg2==2.8.5
